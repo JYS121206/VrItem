@@ -9,18 +9,23 @@ public class Slot : MonoBehaviour
     [SerializeField] private GameObject goCount;
     [SerializeField] private Text txtCount;
 
-    private Itemsss _item;
+    private ItemBase _item; //»πµÊ«— æ∆¿Ã≈€
+    private Itemsss itemsss;
+    int i;
     int x;
 
-    public Itemsss item
+    public ItemBase item
     {
-        get { return _item; }
+        get {
+            itemsss.SetItemList(i);
+            return itemsss.GetItemList()[x]; }
         set
         {
+            itemsss.SetItemList(i);
             _item = value;
             if (_item != null)
             {
-                imgItem.sprite = item.GetItemList()[x].ItemImage;
+                imgItem.sprite = itemsss.GetItemList()[x].ItemImage;
                 imgItem.color = new Color(1, 1, 1, 1);
             }
             else
